@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../res/constants.dart';
+import '../../../../view model/drawer_controller.dart';
 
 class AnimatedLinearProgressIndicator extends StatelessWidget {
   const AnimatedLinearProgressIndicator({super.key, required this.percentage, required this.title, this.image});
@@ -36,22 +37,22 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
   }
 }
 
-class MySKills extends StatelessWidget {
-  const MySKills({super.key});
+class MySkills extends StatelessWidget {
+  const MySkills({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final skills = SkillController.getSkills();
+
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AnimatedLinearProgressIndicator(percentage: 0.7, title: 'Flutter',image: 'assets/icons/flutter.png',),
-        AnimatedLinearProgressIndicator(percentage: 0.9, title: 'Dart',image: 'assets/icons/dart.png'),
-        AnimatedLinearProgressIndicator(percentage: 0.6, title: 'Firebase',image: 'assets/icons/firebase.png'),
-        AnimatedLinearProgressIndicator(percentage: 0.85, title: 'Sqlite',image: 'assets/icons/dart.png'),
-        AnimatedLinearProgressIndicator(percentage: 0.8, title: 'Responsive Design',image: 'assets/icons/flutter.png'),
-        AnimatedLinearProgressIndicator(percentage: 0.9, title: 'Clean Architecture',image: 'assets/icons/flutter.png'),
-        AnimatedLinearProgressIndicator(percentage: 0.5, title: 'Bloc',image: 'assets/icons/bloc.png'),
-        AnimatedLinearProgressIndicator(percentage: 0.93, title: 'Getx',image: 'assets/icons/dart.png'),
-      ],);
+      children: skills
+          .map((skill) => AnimatedLinearProgressIndicator(
+        percentage: skill.percentage,
+        title: skill.title,
+        image: skill.image,
+      ))
+          .toList(),
+    );
   }
 }

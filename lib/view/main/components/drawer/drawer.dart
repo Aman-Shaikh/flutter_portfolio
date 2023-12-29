@@ -23,7 +23,7 @@ class CustomDrawer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   PersonalInfo(),
-                  MySKills(),
+                  MySkills(),
                   Knowledges(),
                   Divider(),
                   SizedBox(height: defaultPadding,),

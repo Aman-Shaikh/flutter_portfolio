@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/view%20model/getx_controllers/projects_controller.dart';
 import 'package:flutter_portfolio/view/projects/components/project_link.dart';
 
 import '../../../model/project_model.dart';
@@ -11,6 +12,7 @@ class ProjectDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.sizeOf(context);
+    List<ProjectModel> projectList = ProjectController().fetchAllProjects();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

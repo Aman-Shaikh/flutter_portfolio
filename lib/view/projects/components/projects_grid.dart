@@ -11,6 +11,7 @@ class ProjectGrid extends StatelessWidget {
   final controller = Get.put(ProjectController());
   @override
   Widget build(BuildContext context) {
+    List<ProjectModel> projectList = ProjectController().fetchAllProjects();
     return GridView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       itemCount: projectList.length,

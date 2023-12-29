@@ -12,6 +12,7 @@ class CertificateStack extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    List<CertificateModel> certificateList = CertificationController().fetchAllCertificates();
     return InkWell(
       onHover: (value) {
         controller.onHover(index, value);

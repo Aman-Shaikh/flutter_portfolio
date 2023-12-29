@@ -12,6 +12,7 @@ class ProjectStack extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    List<ProjectModel> projectList = ProjectController().fetchAllProjects();
     return InkWell(
       onHover: (value) {
         controller.onHover(index, value);

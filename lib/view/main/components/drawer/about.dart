@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/res/constants.dart';
+
+import '../../../../res/constants.dart';
+import '../../../../view model/drawer_controller.dart';
 import 'drawer_image.dart';
+
 class About extends StatelessWidget {
-  const About({super.key});
+  const About({Key? key});
+
   @override
   Widget build(BuildContext context) {
+    final aboutData = AboutController().fetchAboutData();
+
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
-        color:  bgColor,
+        color: bgColor,
         child: Column(
           children: [
             const Spacer(flex: 2,),
             const DrawerImage(),
             const Spacer(),
-            Text('Hamad Anwar',style: Theme.of(context).textTheme.titleSmall,),
-            const SizedBox(height: defaultPadding/4,),
-            const Text('Flutter Developer & The Student of\nSoftware Engineering',
+            Text(
+              aboutData.name,
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            const SizedBox(height: defaultPadding / 4,),
+            Text(
+              aboutData.role,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontWeight: FontWeight.w200,
-                  height: 1.5
-              ),),
+                fontWeight: FontWeight.w200,
+                height: 1.5,
+              ),
+            ),
             const Spacer(flex: 2,),
           ],
         ),

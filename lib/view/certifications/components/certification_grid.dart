@@ -11,6 +11,7 @@ class CertificateGrid extends StatelessWidget {
   final controller = Get.put(CertificationController());
   @override
   Widget build(BuildContext context) {
+    List<CertificateModel> certificateList = CertificationController().fetchAllCertificates();
     return GridView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       itemCount: certificateList.length,

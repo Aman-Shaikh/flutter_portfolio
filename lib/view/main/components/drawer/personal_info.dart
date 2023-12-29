@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 
 import '../../../../res/constants.dart';
+import '../../../../view model/drawer_controller.dart';
 import 'header_info.dart';
 
 class PersonalInfo extends StatelessWidget {
-  const PersonalInfo({super.key});
+  const PersonalInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final personalInfo = PersonalInfoController.getPersonalInfo();
+
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: defaultPadding/2,),
-        AreaInfoText(title: 'Contact', text: '03166657602'),
-        AreaInfoText(title: 'Email', text: 'rh676838@gmail.com'),
-        AreaInfoText(title: 'LinkedIn', text: '@hamad-anwar'),
-        AreaInfoText(title: 'Github', text: '@hamad-anwar'),
+        SizedBox(height: defaultPadding / 2),
+        AreaInfoText(title: 'Contact', text: personalInfo.contact),
+        AreaInfoText(title: 'Email', text: personalInfo.email),
+        AreaInfoText(title: 'LinkedIn', text: personalInfo.linkedIn),
+        AreaInfoText(title: 'Github', text: personalInfo.github),
         SizedBox(
           height: defaultPadding,
         ),
-        Text('Skills',style: TextStyle(color: Colors.white),),
+        Text('Skills', style: TextStyle(color: Colors.white)),
         SizedBox(
           height: defaultPadding,
         ),

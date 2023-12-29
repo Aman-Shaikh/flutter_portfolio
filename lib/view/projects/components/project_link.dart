@@ -3,12 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../model/project_model.dart';
+import '../../../view model/getx_controllers/projects_controller.dart';
 
 class ProjectLinks extends StatelessWidget {
   final int index;
   const ProjectLinks({super.key, required this.index});
   @override
   Widget build(BuildContext context) {
+    List<ProjectModel> projectList = ProjectController().fetchAllProjects();
     return Row(
       children: [
         Row(
